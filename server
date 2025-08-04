@@ -1,0 +1,66 @@
+from mcp.server import FastMCP
+
+# Initialize the FastMCP server with the name "math tools"
+mcp = FastMCP("math tools")
+
+@mcp.tool()
+def add(a: int, b: int) -> int:
+    """
+    Returns the sum of two integers.
+
+    Args:
+        a (int): First integer.
+        b (int): Second integer.
+
+    Returns:
+        int: Sum of a and b.
+    """
+    return a + b
+
+@mcp.tool()
+def mul(a: int, b: int) -> int:
+    """
+    Returns the product of two integers.
+
+    Args:
+        a (int): First integer.
+        b (int): Second integer.
+
+    Returns:
+        int: Product of a and b.
+    """
+    return a * b
+
+@mcp.tool()
+def sub(a: int, b: int) -> int:
+    """
+    Returns the difference between two integers.
+
+    Args:
+        a (int): First integer.
+        b (int): Second integer.
+
+    Returns:
+        int: Result of a minus b.
+    """
+    return a - b
+
+@mcp.tool()
+def div(a: int, b: int) -> float:
+    """
+    Returns the division of two integers.
+
+    Args:
+        a (int): Dividend.
+        b (int): Divisor.
+
+    Returns:
+        float: Result of a divided by b.
+
+    Raises:
+        ZeroDivisionError: If b is zero.
+    """
+    return a / b
+
+# Run the server using stdio transport
+mcp.run(transport="stdio")
